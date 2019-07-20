@@ -13,14 +13,19 @@ window.onload = function() {
 };
 
 function showBadges(badges) {
+  let date = Date.parse(badges.badges.earned_date);
+
   document.getElementById("badges").innerHTML = badges.badges
     .map((badges, index) => {
-      return `<p>${badges.name} </p>
+      return `<div class="badge">
+      <h4>${badges.name} </h4>
 
          <img id="badge-image" src="${badges.icon_url}" alt="image of ${
         badges.name
       }">
-         <p>${badges.earned_date}</p>`;
+        <p>Date Completed:</p>
+        <p>${badges.earned_date}</p>
+         </div>`;
     })
     .join(" ");
 }
